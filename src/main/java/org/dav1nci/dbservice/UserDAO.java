@@ -3,6 +3,7 @@ package org.dav1nci.dbservice;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by dav1nci on 28.10.15.
  */
 @Repository
-@Transactional
+@EnableTransactionManagement
 public class UserDAO implements IUserDAO
 {
     @Autowired
