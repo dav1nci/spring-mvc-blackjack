@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!-- DispatcherServlet Context: определяет настройки одного сервлета; бины,
+           которые доступны только ему -->
+
+       <!-- Разрешаем использование аннотаций Spring MVC (то есть @Controller и.т.д) -->
+
+
+       <!-- Всю статику (изображения, css-файлы, javascript) положим в папку webapp/resources
+           и замаппим их на урл вида /resources/** -->
+
+       <!-- Отображение видов на jsp-файлы, лежащие в папке /WEB-INF/views -->
+       <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+              <property name="prefix" value="/WEB-INF/views/" />
+              <property name="suffix" value=".jsp" />
+       </bean>
+
+       <!-- Файл с настройками контроллеров -->
+       <import resource="controllers.xml" />
+
+</beans>
