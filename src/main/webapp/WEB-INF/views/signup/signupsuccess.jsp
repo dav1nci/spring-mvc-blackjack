@@ -18,10 +18,10 @@
   <div class="constructor">
     <div class="jumbotron">
       <h1>Registration success!!</h1>
-      <h2>Your welcome ${user.name}</h2>
-      <h2>Your welcome ${user.surname}</h2>
-      <h2>Your welcome ${user.email}</h2>
-      <h2>Your welcome ${user.password}</h2>
+      <h2>Your welcome ${userEntity.name}</h2>
+      <h2>Your welcome ${userEntity.surname}</h2>
+      <h2>Your welcome ${userEntity.email}</h2>
+      <h2>Your welcome ${userEntity.password}</h2>
       <h2>Your welcome ${confrimpass}</h2>
       <p><a class="btn btn-lg btn-success" href="/" role="button">Home</a></p>
     </div>

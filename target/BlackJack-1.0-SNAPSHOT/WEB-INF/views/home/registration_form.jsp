@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-<form:errors path="user.*"/>
+<form:errors path="userEntity.*"/>
 <div class="alert alert-success">
     <h1>${greetingMessage}</h1>
     <h2>Registration</h2>

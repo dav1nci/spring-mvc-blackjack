@@ -14,9 +14,6 @@
         <property name="show_sql">true</property>-->
 
         <mapping class="org.dav1nci.dbservice.UserEntity"/>
-        <!--<mapping class="org.dav1nci.database.FAQ"/>
-        <mapping class="org.dav1nci.database.Home"/>
-        <mapping class="org.dav1nci.database.Rules"/>
-        <mapping class="org.dav1nci.User"/>-->
+        <mapping class="org.dav1nci.dbservice.HomeEntity"/>
     </session-factory>
 </hibernate-configuration>

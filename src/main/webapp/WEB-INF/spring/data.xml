@@ -11,6 +11,7 @@
         http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
        <!-- Настраивает управление транзакциями с помощью аннотации @Transactional -->
        <tx:annotation-driven transaction-manager="transactionManager"/>
        <!-- Менеджер транзакций -->
@@ -45,10 +46,18 @@
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan" value="org.dav1nci.dbservice" />
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>org.dav1nci.dbservice.UserEntity</value>
+                <value>org.dav1nci.dbservice.HomeEntity</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
     </bean>

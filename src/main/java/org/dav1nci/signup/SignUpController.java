@@ -31,10 +31,10 @@ public class SignUpController
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signUpFormSubmit(@ModelAttribute("user") UserEntity user, @RequestParam ("confirmPassword") String confirmPas,  Model model)
+    public String signUpFormSubmit(@ModelAttribute("user") UserEntity userEntity, @RequestParam ("confirmPassword") String confirmPas,  Model model)
     {
-        userService.addContact(user);
-        model.addAttribute("user", user);
+        userService.addContact(userEntity);
+        model.addAttribute("userEntity", userEntity);
         model.addAttribute("confrimpass", confirmPas);
         return "signup/signupsuccess";
     }
