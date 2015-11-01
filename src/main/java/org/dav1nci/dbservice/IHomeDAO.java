@@ -7,6 +7,6 @@ import java.util.List;
  */
 public interface IHomeDAO
 {
-    public List<HomeEntity> getContent();
+    public List<HomeEntity> getContent(String tableName);
     public void save(HomeEntity homeEntity);
 }

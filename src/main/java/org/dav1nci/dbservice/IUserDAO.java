@@ -11,5 +11,7 @@ public interface IUserDAO
 
     public List<UserEntity> listContact();
 
+    public UserEntity getUser(String email);
+
     public void removeContact(Integer id);
 }

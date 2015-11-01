@@ -18,9 +18,9 @@ public class HomeDAO implements IHomeDAO {
     private SessionFactory sessionFactory;
 
     @SuppressWarnings("unchecked")
-    public List<HomeEntity> getContent()
+    public List<HomeEntity> getContent(String tableName)
     {
-        return (List<HomeEntity>)sessionFactory.getCurrentSession().createQuery("from HomeEntity").list();
+        return (List<HomeEntity>)sessionFactory.getCurrentSession().createQuery("from " + tableName).list();
 
     }
 

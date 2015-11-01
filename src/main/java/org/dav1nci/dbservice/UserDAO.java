@@ -29,6 +29,11 @@ public class UserDAO implements IUserDAO
         return usersList;
     }
 
+    @Override
+    public UserEntity getUser(String email) {
+        return (UserEntity)sessionFactory.getCurrentSession().createQuery("from UserEntity where email = '" + email + "'").list().get(0);
+    }
+
     public void removeContact(Integer id) {
         UserEntity contact = (UserEntity) sessionFactory.getCurrentSession().load(UserEntity.class, id);
         if (null != contact) {

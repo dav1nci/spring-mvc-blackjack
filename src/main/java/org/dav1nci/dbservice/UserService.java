@@ -24,6 +24,12 @@ public class UserService implements IUserService {
     }
 
     @Transactional
+    @Override
+    public UserEntity getUser(String email) {
+        return contactDAO.getUser(email);
+    }
+
+    @Transactional
     public List<UserEntity> listContact() {
 
         return contactDAO.listContact();

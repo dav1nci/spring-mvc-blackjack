@@ -14,15 +14,15 @@ import java.util.List;
 @Service
 @Configuration
 @ComponentScan("org.dav1nci.dbservice")
-public class HomeService implements IGetContentHome
+public class HomeService implements IHomeService
 {
     @Autowired
     private IHomeDAO iHomeDAO;
 
     @Override
     @Transactional
-    public List<HomeEntity> listContact() {
-        return iHomeDAO.getContent();
+    public List<HomeEntity> listContact(String tableName) {
+        return iHomeDAO.getContent(tableName);
     }
 
     @Override

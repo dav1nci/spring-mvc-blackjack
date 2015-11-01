@@ -4,22 +4,32 @@
 	version="3.0">
 	<!-- Map all errors to Spring MVC handler method. See CustomErrorController.generalError() -->
 
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<!-- Описание корневого контейнера, разделяемого всеми сервлетами и фильтрами -->
-	<context-param>
+	<!--<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			/WEB-INF/spring/root-context.xml
 		</param-value>
 	</context-param>
 
-	<!-- Создаёт контейнер Spring, разделяемый всеми сервлетами и фильтрами -->
+	&lt;!&ndash; Создаёт контейнер Spring, разделяемый всеми сервлетами и фильтрами &ndash;&gt;
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 
 
-	<!-- Базовый сервлет, обрабатывает все запросы к приложению -->
+	&lt;!&ndash; Базовый сервлет, обрабатывает все запросы к приложению &ndash;&gt;
 	<servlet>
 		<servlet-name>spring-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -33,7 +43,7 @@
 	<servlet-mapping>
 		<servlet-name>spring-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>-->
 
 	<!-- Фильтр для перекодировки в utf8 -->
 	<!--<filter>

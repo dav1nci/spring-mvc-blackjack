@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <html>
 <head>
     <style>
@@ -23,7 +24,13 @@
                         <li><a href="/faq">FAQ</a></li>
                     </ul>
                     <div class="pull-right">
-                        <a class="btn btn-success" data-toggle="modal" href="/signin">Sign in</a>
+                        <sec:authorize access="!isAuthenticated()">
+                            <a class="btn btn-success" data-toggle="modal" href="/signin">Sign in</a>
+                        </sec:authorize>
+                        <sec:authorize access="isAuthenticated()">
+                            <p>Hello <sec:authentication property="user.username"/></p>
+                            <a class="btn btn-success" data-toggle="modal" href="/signout">Sign out</a>
+                        </sec:authorize>
                     </div>
                 </div>
             </div>

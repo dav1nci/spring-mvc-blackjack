@@ -9,6 +9,8 @@ public interface IUserService
 {
     public void addContact(UserEntity contact);
 
+    public UserEntity getUser(String email);
+
     public List<UserEntity> listContact();
 
     public void removeContact(Integer id);

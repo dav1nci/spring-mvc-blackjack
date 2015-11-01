@@ -24,9 +24,10 @@
                     <th><spring:message code="label.telephone" /></th>
                     <th>&nbsp;</th>
                 </tr>--%>
-                <c:forEach items="${content}" var="row">
+                <%--<c:forEach items="${content}" var="row">
                     <p>${row.content}</p>
-                </c:forEach>
+                </c:forEach>--%>
+            ${content.name}
        <%-- </c:if>--%>
     </div>
 </div>
