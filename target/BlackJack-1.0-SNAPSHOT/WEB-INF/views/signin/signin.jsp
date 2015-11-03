@@ -22,13 +22,13 @@
                 <div class="form-group">
                     <label class="control-label col-xs-3">Name</label>
                     <div class="col-xs-9">
-                        <input type="text" class="form-control" name="email" placeholder="Enter your email">
+                        <input type="text" class="form-control" name="j_username" placeholder="Enter your email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-xs-3">Password</label>
                     <div class="col-xs-9">
-                        <input type="text" class="form-control" name="password" placeholder="Enter your password">
+                        <input type="text" class="form-control" name="j_password" placeholder="Enter your password">
                     </div>
                 </div>
                 <div class="form-group">

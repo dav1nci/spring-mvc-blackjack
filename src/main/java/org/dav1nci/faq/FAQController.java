@@ -2,7 +2,6 @@ package org.dav1nci.faq;
 
 import org.dav1nci.dbservice.FAQEntity;
 import org.dav1nci.dbservice.FAQService;
-import org.dav1nci.dbservice.IPagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.domain.Page;

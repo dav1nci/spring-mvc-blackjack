@@ -16,28 +16,9 @@ import java.text.MessageFormat;
 @Controller
 public class ErrorController
 {
-    @RequestMapping("generalError")
-    public String generalError(HttpServletRequest request, HttpServletResponse response, Model model) {
-        // retrieve some useful information from the request
-        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        if (statusCode == 404)
-            return "error/404";
-        return "home/home";
-        //Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
-        // String servletName = (String) request.getAttribute("javax.servlet.error.servlet_name");
-        /*String exceptionMessage = getExceptionMessage(throwable, statusCode);
-
-        String requestUri = (String) request.getAttribute("javax.servlet.error.request_uri");
-        if (requestUri == null) {
-            requestUri = "Unknown";
-        }
-
-        String message = MessageFormat.format("{0} returned for {1} with message {2}",
-                statusCode, requestUri, exceptionMessage
-        );
-
-        model.addAttribute("errorMessage", message);
-        return "error/general";*/
+    @RequestMapping("/generalError")
+    public String generalError(Model model) {
+        return "errors/404";
     }
 
    /* private String getExceptionMessage(Throwable throwable, Integer statusCode) {

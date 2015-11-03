@@ -20,8 +20,12 @@ public class HomeDAO implements IHomeDAO {
     @SuppressWarnings("unchecked")
     public List<HomeEntity> getContent(String tableName)
     {
+       /* List<HomeEntity> list = sessionFactory.getCurrentSession().createQuery("from " + tableName).list();
+        for (HomeEntity i : list)
+        {
+            System.out.println(i.getContent());
+        }*/
         return (List<HomeEntity>)sessionFactory.getCurrentSession().createQuery("from " + tableName).list();
-
     }
 
     @Override
