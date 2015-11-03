@@ -22,14 +22,14 @@
             <p class="lead">
                 Devcolibri - это сервис предоставляющий всем желающим возможность обучаться программированию.
             </p>
-            <sec:authorize access="!isAuthenticated()">
+            <%--<sec:authorize access="!isAuthenticated()">
                 <p><a class="btn btn-lg btn-success" href="/signin" > Войти</a></p>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
                 <p>Ваш логин: <sec:authentication property="principal.username" /></p>
                 <p><a class="btn btn-lg btn-danger" href="/signout" role="button">Выйти</a></p>
 
-            </sec:authorize>
+            </sec:authorize>--%>
         </div>
         <%--<c:if test="${!empty content}">
             <table class="data">

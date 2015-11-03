@@ -24,11 +24,12 @@
                         <li><a href="/faq">FAQ</a></li>
                     </ul>
                     <div class="pull-right">
+                        <%--<a href="/logout"/>">Logout</a>--%>
                         <sec:authorize access="!isAuthenticated()">
                             <a class="btn btn-success" data-toggle="modal" href="/signin">Sign in</a>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
-                            <p>Hello <sec:authentication property="user.username"/></p>
+                            <p>Hello !</p>
                             <a class="btn btn-success" data-toggle="modal" href="/signout">Sign out</a>
                         </sec:authorize>
                     </div>
