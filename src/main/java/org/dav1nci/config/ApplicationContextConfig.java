@@ -40,7 +40,7 @@ public class ApplicationContextConfig
 
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 
-        sessionBuilder.addAnnotatedClasses(UserEntity.class, RulesEntity.class, FAQEntity.class, HomeEntity.class, ForumEntity.class, UserProfile.class);
+        sessionBuilder.addAnnotatedClasses(UserEntity.class, RulesEntity.class, FAQEntity.class, HomeEntity.class, ForumEntity.class, RoleEntity.class);
         sessionBuilder.addProperties(getHibernateProperties());
 
         return sessionBuilder.buildSessionFactory();

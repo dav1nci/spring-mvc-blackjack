@@ -1,5 +1,6 @@
 package org.dav1nci.signup;
 
+import org.dav1nci.dbservice.RoleEntity;
 import org.dav1nci.dbservice.UserEntity;
 import org.dav1nci.dbservice.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dav1nci on 27.10.15.
@@ -33,6 +37,9 @@ public class SignUpController
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signUpFormSubmit(@ModelAttribute("user") UserEntity userEntity, @RequestParam ("confirmPassword") String confirmPas,  Model model)
     {
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setRole("USER");
+        userEntity.setRole(roleEntity);
         userService.addContact(userEntity);
         model.addAttribute("userEntity", userEntity);
         model.addAttribute("confrimpass", confirmPas);

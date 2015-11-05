@@ -41,15 +41,6 @@ public class HomeController
     {
         model.addAttribute("row", new HomeEntity());
         model.addAttribute("content", homeService.listContact("HomeEntity"));
-        /*ForumEntity post = new ForumEntity();
-        System.out.println("New post created!");
-        post.setId(1);
-        post.setAuthor("dron321");
-        post.setBody("Dron message");
-        post.setDate(new Date());
-        post.setTitle("Warrior best class");
-        post.setRating(4);
-        service.addPost(post);*/
         return "home/home";
     }
 

@@ -42,6 +42,8 @@
                     </div>
                 </form>
             </div>
+            <h2>New Here?</h2>
+            <a href="/signup" class="btn btn-default">Sign up</a>
         </div>
     </div>
 </div>

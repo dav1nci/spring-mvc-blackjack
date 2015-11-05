@@ -33,7 +33,7 @@ public class UserDAO implements IUserDAO
     @Override
     @SuppressWarnings("unchecked")
     public UserEntity getUser(String email) {
-        List<UserEntity> users = sessionFactory.getCurrentSession().createQuery("FROM users WHERE email=?").setParameter(0, email).list();
+        List<UserEntity> users = sessionFactory.getCurrentSession().createQuery("FROM UserEntity WHERE email='" + email + "'").list();
         if (users.size() > 0)
             return users.get(0);
         return null;

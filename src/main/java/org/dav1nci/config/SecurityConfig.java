@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .and().formLogin()
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/", false);
+                .and().csrf().disable();
                 /*.and().exceptionHandling().accessDeniedPage("/Access_Denied");*/
     }
 
