@@ -7,11 +7,11 @@ import java.util.List;
  */
 public interface IUserService
 {
-    public void addContact(UserEntity contact);
+    void addContact(UserEntity contact);
 
-    public UserEntity getUser(String email);
+    UserEntity getUser(String email);
 
-    public List<UserEntity> listContact();
+    List<UserEntity> listContact();
 
-    public void removeContact(Integer id);
+    void removeContact(Integer id);
 }

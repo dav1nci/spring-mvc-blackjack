@@ -1,6 +1,7 @@
 package org.dav1nci.home;
 
 import org.dav1nci.dbservice.*;
+import org.dav1nci.forum.ForumEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.Authentication;
@@ -17,6 +18,7 @@ import org.springframework.ui.ModelMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,11 +33,23 @@ public class HomeController
     @Autowired
     private HomeService homeService;
 
+    /*@Autowired
+    private ForumService service;*/
+
     @RequestMapping(value = "/")
     public String home(Model model)
     {
         model.addAttribute("row", new HomeEntity());
         model.addAttribute("content", homeService.listContact("HomeEntity"));
+        /*ForumEntity post = new ForumEntity();
+        System.out.println("New post created!");
+        post.setId(1);
+        post.setAuthor("dron321");
+        post.setBody("Dron message");
+        post.setDate(new Date());
+        post.setTitle("Warrior best class");
+        post.setRating(4);
+        service.addPost(post);*/
         return "home/home";
     }
 
@@ -59,7 +73,7 @@ public class HomeController
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:home/signin?signout";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)

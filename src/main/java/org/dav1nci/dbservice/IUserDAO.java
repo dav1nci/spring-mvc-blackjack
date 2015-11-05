@@ -7,11 +7,12 @@ import java.util.List;
  */
 public interface IUserDAO
 {
-    public void addContact(UserEntity contact);
+    void addContact(UserEntity contact);
 
-    public List<UserEntity> listContact();
+    List<UserEntity> listContact();
 
-    public UserEntity getUser(String email);
+    UserEntity getUser(String email);
 
-    public void removeContact(Integer id);
+    void removeContact(Integer id);
+
 }

@@ -1,6 +1,8 @@
 package org.dav1nci.dbservice;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by dav1nci on 27.10.15.
@@ -10,38 +12,43 @@ import javax.persistence.*;
 public class UserEntity
 {
     @Id
-    @Column(name = "id")
-    @GeneratedValue
-    private int id;
-    @Column(name = "username")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name = "username", nullable = false, length = 40)
     private String name;
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
-    @Column(name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "state")
+    private String state = State.ACTIVE.getState();
+    @Column(name = "role")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_profile",
+            joinColumns = { @JoinColumn(name = "USER_ID") },
+            inverseJoinColumns = { @JoinColumn(name = "PROFILE_ID") })
+    private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 
-    public UserEntity() {
-    }
-
-    public UserEntity(String name, String surname, String email, String password) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public void setName(String name) {
@@ -70,5 +77,13 @@ public class UserEntity
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<UserProfile> getUserProfiles() {
+        return userProfiles;
+    }
+
+    public void setUserProfiles(Set<UserProfile> userProfiles) {
+        this.userProfiles = userProfiles;
     }
 }

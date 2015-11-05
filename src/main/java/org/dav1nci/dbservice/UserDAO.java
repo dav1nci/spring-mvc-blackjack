@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,8 +31,12 @@ public class UserDAO implements IUserDAO
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public UserEntity getUser(String email) {
-        return (UserEntity)sessionFactory.getCurrentSession().createQuery("from UserEntity where email = '" + email + "'").list().get(0);
+        List<UserEntity> users = sessionFactory.getCurrentSession().createQuery("FROM users WHERE email=?").setParameter(0, email).list();
+        if (users.size() > 0)
+            return users.get(0);
+        return null;
     }
 
     public void removeContact(Integer id) {

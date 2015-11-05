@@ -20,7 +20,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/rules">Rules</a></li>
                         <li><a href="/secrets">Secrets</a></li>
-                        <li><a href="/forums">Forums</a></li>
+                        <li><a href="/forum">Forums</a></li>
                         <li><a href="/faq">FAQ</a></li>
                     </ul>
                     <div class="pull-right">

@@ -17,33 +17,21 @@
 </div>
 <div class="container">
     <div class="constructor">
-        <div class="jumbotron" style="margin-top: 20px;">
-            <h1>Devcolibri.com</h1>
-            <p class="lead">
-                Devcolibri - это сервис предоставляющий всем желающим возможность обучаться программированию.
-            </p>
-            <%--<sec:authorize access="!isAuthenticated()">
+        <%--<div class="jumbotron" style="margin-top: 20px;">
+            &lt;%&ndash;<sec:authorize access="!isAuthenticated()">
                 <p><a class="btn btn-lg btn-success" href="/signin" > Войти</a></p>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
                 <p>Ваш логин: <sec:authentication property="principal.username" /></p>
                 <p><a class="btn btn-lg btn-danger" href="/signout" role="button">Выйти</a></p>
 
-            </sec:authorize>--%>
-        </div>
-        <%--<c:if test="${!empty content}">
-            <table class="data">
-                <tr>
-                    <th><spring:message code="label.firstname" /></th>
-                    <th><spring:message code="label.email" /></th>
-                    <th><spring:message code="label.telephone" /></th>
-                    <th>&nbsp;</th>
-                </tr>
+            </sec:authorize>&ndash;%&gt;
+        </div>--%>
+
                 <c:forEach items="${content}" var="row">
                     <p>${row.content}</p>
                 </c:forEach>
-            ${content.name}
-        </c:if>--%>
+
     </div>
 </div>
 <div>

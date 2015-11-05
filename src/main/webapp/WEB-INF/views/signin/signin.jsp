@@ -10,43 +10,40 @@
   <title>Home</title>
 </head>
 <body>
-<div>
-    <jsp:include page="../fragments/header.jsp"/>
-</div>
-<div class="container">
-    <div class="constructor">
-        <div class="alert alert-success">
-            <h2>Sign in</h2>
-            <c:url value="/j_spring_security_check" var="loginUrl"/>
-            <form class="form-horizontal" action="/signin" method="post">
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Name</label>
-                    <div class="col-xs-9">
-                        <input type="text" class="form-control" name="j_username" placeholder="Enter your email">
+<div id="mainWrapper">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-form">
+                <c:url var="loginUrl" value="/login" />
+                <form action="${loginUrl}" method="post" class="form-horizontal">
+                    <c:if test="${param.error != null}">
+                        <div class="alert alert-danger">
+                            <p>Invalid username and password.</p>
+                        </div>
+                    </c:if>
+                    <c:if test="${param.logout != null}">
+                        <div class="alert alert-success">
+                            <p>You have been logged out successfully.</p>
+                        </div>
+                    </c:if>
+                    <div class="input-group input-sm">
+                        <label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
+                        <input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username" required>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3">Password</label>
-                    <div class="col-xs-9">
-                        <input type="text" class="form-control" name="j_password" placeholder="Enter your password">
+                    <div class="input-group input-sm">
+                        <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-offset-3 col-xs-9">
-                        <input type="submit" class="btn btn-primary" value="Sign up">
-                        <input type="reset" class="btn btn-default" value="Clear form">
+                    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
+
+                    <div class="form-actions">
+                        <input type="submit"
+                               class="btn btn-block btn-primary btn-default" value="Log in">
                     </div>
-                </div>
-                <div class="col-lg-offset-2 col-lg-10">
-                    <h3>New here?</h3>
-                    <a class="btn btn-success" data-toggle="modal" href="/signup">Sign up</a>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<div>
-    <jsp:include page="../fragments/footer.jsp"/>
 </div>
 </body>
 </html>
