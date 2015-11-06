@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: Spring MVC Application
-Implementation-Version: 1.0-SNAPSHOT
-Implementation-Vendor-Id: org.dav1nci
-Build-Jdk: 1.7.0_79
-Built-By: dav1nci
-Created-By: IntelliJ IDEA
-Main-Class: ${start-class}
-
