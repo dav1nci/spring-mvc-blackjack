@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface IForumDAO {
 
-    public List<ForumEntity> listPost();
-    public void addPost(ForumEntity forumEntity);
+    List<ForumEntity> listPost();
+    void addPost(ForumEntity forumEntity);
+    ForumEntity showPost(int id);
 }

@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/faq/**").access("hasRole('ROLE_ADMIN')")
                 /*.anyRequest().authenticated()*/
                 .and().formLogin()
+                .loginPage("/signin")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().csrf().disable();

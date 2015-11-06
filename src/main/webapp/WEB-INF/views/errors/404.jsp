@@ -14,9 +14,6 @@
     <title></title>
 </head>
 <body>
-<div>
-    <jsp:include page="../fragments/header.jsp"/>
-</div>
 <div class="container">
     <div class="constructor">
         <div class="jumbotron">
@@ -38,9 +35,6 @@
             </div>
         </div>
     </div>
-</div>
-<div>
-    <jsp:include page="../fragments/footer.jsp"/>
 </div>
 </body>
 </html>

@@ -28,4 +28,10 @@ public class ForumDAO implements IForumDAO
     public void addPost(ForumEntity forumEntity) {
         sessionFactory.getCurrentSession().save(forumEntity);
     }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public ForumEntity showPost(int id) {
+        return (ForumEntity)sessionFactory.getCurrentSession().createQuery("FROM ForumEntity WHERE id=?").setParameter(0, id).list().get(0);
+    }
 }

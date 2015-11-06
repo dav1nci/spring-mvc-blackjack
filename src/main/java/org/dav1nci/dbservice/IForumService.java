@@ -11,4 +11,5 @@ public interface IForumService
 {
     public List<ForumEntity> listPost();
     public void addPost(ForumEntity forumEntity);
+    ForumEntity showPost(int id);
 }

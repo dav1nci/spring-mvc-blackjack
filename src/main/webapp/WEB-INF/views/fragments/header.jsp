@@ -29,7 +29,7 @@
                             <a class="btn btn-success" data-toggle="modal" href="/signin">Sign in</a>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
-                            <p>Hello !</p>
+                            <p>Hello <sec:authentication property="principal.username"/>!</p>
                             <a class="btn btn-success" data-toggle="modal" href="/signout">Sign out</a>
                         </sec:authorize>
                     </div>

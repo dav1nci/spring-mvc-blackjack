@@ -20,7 +20,7 @@
         <div class="container">
             <%--<h2>Hover Rows</h2>--%>
             <sec:authorize access="hasRole('ROLE_ADMIN') and hasRole('ROLE_USER')">
-                <a class="btn btn-success" data-toggle="modal" href="/signup">Add new theme</a>
+                <a class="btn btn-success" data-toggle="modal" href="/add">Add new theme</a>
             </sec:authorize>
             <table class="table table-hover">
                 <thead>
@@ -34,29 +34,19 @@
                 <tbody>
                 <c:forEach items="${posts}" var="post">
                     <tr>
-                        <td>${post.title}</td>
+                        <td><a href="/forum/${post.id}">${post.title}</a></td>
                         <td>${post.author}</td>
                         <td>${post.date}</td>
-                        <td>${post.rating}</td>
+                        <td>
+                            <c:forEach var="i" begin="1" end="${post.rating}">
+                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                            </c:forEach>
+                        </td>
                     </tr>
                 </c:forEach>
-
                 </tbody>
             </table>
         </div>
-        <%--<div class="form-horizontal">
-            <sec:authorize access="!isAuthenticated()">
-                <a class="btn btn-success" data-toggle="modal" href="/signin">Sign in</a>
-            </sec:authorize>
-            <c:forEach items="${posts}" var="post">
-                <div class="form-group">
-                    <label class="control-label col-xs-3">${post.title}</label>
-                    <label class="control-label col-xs-3">${post.author}</label>
-                    <label class="control-label col-xs-3">${post.date}</label>
-                    <label class="control-label col-xs-3">${post.rating}</label>
-                </div>
-            </c:forEach>
-        </div>--%>
     </div>
 </div>
 <div>

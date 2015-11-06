@@ -17,7 +17,15 @@ import java.text.MessageFormat;
 public class ErrorController
 {
     @RequestMapping("/generalError")
-    public String generalError(Model model) {
+    public String generalError(HttpServletRequest request, HttpServletResponse response, Model model) {
+        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        switch (statusCode)
+        {
+            case 404:
+                return "errors/404";
+            case 403:
+                return "errors/403";
+        }
         return "errors/404";
     }
 

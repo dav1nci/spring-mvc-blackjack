@@ -31,4 +31,10 @@ public class ForumService implements IForumService
     public void addPost(ForumEntity forumEntity) {
         iForumDAO.addPost(forumEntity);
     }
+
+    @Override
+    @Transactional
+    public ForumEntity showPost(int id) {
+        return iForumDAO.showPost(id);
+    }
 }
