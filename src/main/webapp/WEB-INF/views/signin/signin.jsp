@@ -6,7 +6,7 @@
 <head>
   <style>
       <%@include file="../../../resources/css/bootstrap.min.css"%>
-      <%@include file="../../../resources/css/mystyle.css"%>
+      <%--<%@include file="../../../resources/css/mystyle.css"%>--%>
   </style>
 
   <title>Home</title>

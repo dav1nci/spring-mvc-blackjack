@@ -1,5 +1,6 @@
 package org.dav1nci.dbservice;
 
+import org.dav1nci.forum.CommentEntity;
 import org.dav1nci.forum.ForumEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -36,5 +37,12 @@ public class ForumService implements IForumService
     @Transactional
     public ForumEntity showPost(int id) {
         return iForumDAO.showPost(id);
+    }
+
+    @Override
+    @Transactional
+    public void addComment(int id, CommentEntity comment) {
+        ForumEntity forumEntity = showPost(id);
+        forumEntity.getComments().add(comment);
     }
 }

@@ -4,6 +4,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by dav1nci on 04.11.15.
@@ -27,6 +29,9 @@ public class ForumEntity {
     private Date date;
     @Column(name = "rating")
     private int rating;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "forum_comments", joinColumns = { @JoinColumn(name = "forum_id") }, inverseJoinColumns = { @JoinColumn(name = "comment_id") })
+    private Set<CommentEntity> comments = new HashSet<>();
 
     public int getId() {
         return id;
@@ -74,5 +79,13 @@ public class ForumEntity {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public Set<CommentEntity> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<CommentEntity> comments) {
+        this.comments = comments;
     }
 }

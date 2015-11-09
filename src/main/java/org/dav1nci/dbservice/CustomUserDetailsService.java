@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional(readOnly=true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity userEntity = userDAO.getUser(email);
-        System.out.println("!!!!!!!!!!!!!!!!!!! " + userEntity.getEmail() + "!!!!!!!!!!!" + userEntity.getPassword() + "!!!!!!!!!!!");
+        //System.out.println("!!!!!!!!!!!!!!!!!!! " + userEntity.getEmail() + "!!!!!!!!!!!" + userEntity.getPassword() + "!!!!!!!!!!!");
         boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;

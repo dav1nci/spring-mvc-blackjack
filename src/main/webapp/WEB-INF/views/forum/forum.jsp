@@ -19,7 +19,7 @@
     <div class="constructor">
         <div class="container">
             <%--<h2>Hover Rows</h2>--%>
-            <sec:authorize access="hasRole('ROLE_ADMIN') and hasRole('ROLE_USER')">
+            <sec:authorize access="hasRole('ROLE_USER')">
                 <a class="btn btn-success" data-toggle="modal" href="/add">Add new theme</a>
             </sec:authorize>
             <table class="table table-hover">

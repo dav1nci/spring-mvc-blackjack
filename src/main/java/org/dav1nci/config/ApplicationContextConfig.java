@@ -1,6 +1,7 @@
 package org.dav1nci.config;
 
 import org.dav1nci.dbservice.*;
+import org.dav1nci.forum.CommentEntity;
 import org.dav1nci.forum.ForumEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class ApplicationContextConfig
 
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 
-        sessionBuilder.addAnnotatedClasses(UserEntity.class, RulesEntity.class, FAQEntity.class, HomeEntity.class, ForumEntity.class, RoleEntity.class);
+        sessionBuilder.addAnnotatedClasses(UserEntity.class, RulesEntity.class, FAQEntity.class, HomeEntity.class, ForumEntity.class, RoleEntity.class, CommentEntity.class);
         sessionBuilder.addProperties(getHibernateProperties());
 
         return sessionBuilder.buildSessionFactory();
