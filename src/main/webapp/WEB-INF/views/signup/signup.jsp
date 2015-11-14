@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <html>
 <head>
   <style>
@@ -30,7 +34,7 @@
         <div class="form-group">
           <label class="control-label col-xs-3">E-mail</label>
           <div class="col-xs-9">
-            <input type="text" class="form-control" name="email" placeholder="Enter your e-mail">
+            <input type="email" class="form-control" name="email" placeholder="Enter your e-mail">
           </div>
         </div>
         <div class="form-group">
@@ -44,6 +48,9 @@
               <div class="col-xs-9">
                   <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm your password">
               </div>
+              <c:if test="${not empty error}">
+                <h3>Passwords must be the same</h3>
+              </c:if>
           </div>
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-9">

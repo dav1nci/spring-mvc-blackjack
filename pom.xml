@@ -165,6 +165,12 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+        <!--RSS-->
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome</artifactId>
+            <version>1.5.1</version>
+        </dependency>
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>

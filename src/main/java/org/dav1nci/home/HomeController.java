@@ -27,14 +27,10 @@ import java.util.Set;
  * Created by dav1nci on 27.10.15.
  */
 @Controller
-@ComponentScan("org.dav1nci.home")
 public class HomeController
 {
     @Autowired
     private HomeService homeService;
-
-    /*@Autowired
-    private ForumService service;*/
 
     @RequestMapping(value = "/")
     public String home(Model model)
@@ -44,20 +40,6 @@ public class HomeController
         return "home/home";
     }
 
-/*    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(Model model)
-    {
-        model.addAttribute("user", getPrincipal());
-        return "home/admin";
-    }
-
-    @RequestMapping(value = "/db", method = RequestMethod.GET)
-    public String dbaPage(Model model)
-    {
-        model.addAttribute("user", getPrincipal());
-        return "home/dba";
-    }*/
-
     @RequestMapping(value="/signout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -65,23 +47,5 @@ public class HomeController
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/";
-    }
-
-    @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
-    public String accessDeniedPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "accessDenied";
-    }
-
-    private String getPrincipal(){
-        String userName = null;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        if (principal instanceof UserDetails) {
-            userName = ((UserDetails)principal).getUsername();
-        } else {
-            userName = principal.toString();
-        }
-        return userName;
     }
 }

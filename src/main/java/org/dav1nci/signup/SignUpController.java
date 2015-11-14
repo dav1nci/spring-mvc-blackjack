@@ -37,6 +37,11 @@ public class SignUpController
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signUpFormSubmit(@ModelAttribute("user") UserEntity userEntity, @RequestParam ("confirmPassword") String confirmPas,  Model model)
     {
+        if (!userEntity.getPassword().equals(confirmPas))
+        {
+            model.addAttribute("error", "Enter the same passwords");
+            return "redirect:/signup";
+        }
         RoleEntity roleEntity = new RoleEntity();
         roleEntity.setRole("USER");
         userEntity.setRole(roleEntity);

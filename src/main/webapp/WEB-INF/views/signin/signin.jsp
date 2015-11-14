@@ -19,12 +19,12 @@
             <form class="form-signin" action="/signin" method="post">
                 <fieldset>
                     <h2 class="form-signin-heading">Please sign in</h2>
-                    <div th:if="${param.error}" class="alert alert-error">
+                    <%--<div th:if="${param.error}" class="alert alert-error">
                         Invalid username and password.
                     </div>
                     <div th:if="${param.logout}" class="alert alert-success">
                         You have been logged out.
-                    </div>
+                    </div>--%>
                     <label for="email" class="sr-only">Email address</label>
                     <input type="email" id="email" class="form-control" name = "email" placeholder="Email address">
                     <label for="password" class="sr-only">Password</label>
