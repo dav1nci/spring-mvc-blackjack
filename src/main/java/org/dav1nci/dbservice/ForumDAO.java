@@ -21,7 +21,7 @@ public class ForumDAO implements IForumDAO
 
     @Override
     public List<ForumEntity> listPost() {
-        return sessionFactory.getCurrentSession().createQuery("FROM ForumEntity").list();
+        return sessionFactory.getCurrentSession().createQuery("FROM ForumEntity ORDER BY date").list();
     }
 
     @Override

@@ -17,20 +17,25 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/rules">Rules</a></li>
-                        <li><a href="/secrets">Secrets</a></li>
-                        <li><a href="/forum">Forums</a></li>
-                        <li><a href="/faq">FAQ</a></li>
+                        <li><a class="navbar-brand" href="/">Home</a></li>
+                        <li><a class="navbar-brand" href="/rules">Rules</a></li>
+                        <li><a class="navbar-brand" href="/rss">Feeds</a></li>
+                        <li><a class="navbar-brand" href="/forum">Forums</a></li>
+                        <li><a class="navbar-brand" href="/faq">FAQ</a></li>
                     </ul>
                     <div class="pull-right">
                         <%--<a href="/logout"/>">Logout</a>--%>
                         <sec:authorize access="!isAuthenticated()">
-                            <a class="btn btn-success" data-toggle="modal" href="/signin">Sign in</a>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li><a href="/signin"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+                            </ul>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
-                            <p>Hello <sec:authentication property="principal.username"/>!</p>
-                            <a class="btn btn-success" data-toggle="modal" href="/signout">Sign out</a>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a>Hello <sec:authentication property="principal.username"/>!</a></li>
+                                <li><a href="/signout"><span class="glyphicon glyphicon-log-in"></span> Sign out</a></li>
+                            </ul>
                         </sec:authorize>
                     </div>
                 </div>

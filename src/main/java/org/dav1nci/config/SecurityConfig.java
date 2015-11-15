@@ -33,8 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 
         http.authorizeRequests()
                 .antMatchers("/").permitAll() //not sequried
-                .antMatchers("/rules/**").access("hasRole('ROLE_USER')")
-                .antMatchers("/forum/**").access("hasRole('ROLE_USER')")
+                //.antMatchers("/rules/**").access("hasRole('ROLE_USER')")
+                //.antMatchers("/forum/**").access("hasRole('ROLE_USER')")
                 .antMatchers("/faq/**").access("hasRole('ROLE_ADMIN')")
                 /*.anyRequest().authenticated()*/
                 .and().formLogin()

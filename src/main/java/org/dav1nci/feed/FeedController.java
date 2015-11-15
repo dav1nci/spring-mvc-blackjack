@@ -1,7 +1,6 @@
 package org.dav1nci.feed;
 
-import com.rometools.rome.feed.rss.Channel;
-import com.rometools.rome.feed.rss.Item;
+import org.dav1nci.dbservice.FeedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,16 +14,22 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class FeedController
 {
-    @Autowired
-    private FeedEntity feedEntity;
 
-    @RequestMapping(value = "/feed", method = RequestMethod.GET)
-    public String getFeed(Model model)
+    @Autowired
+    private FeedService feedService;
+
+    @RequestMapping(value = "/feed")
+    public String feed()
     {
-        Channel channel = CustomRssView.createChannel();
-        Item item = CustomRssView.createItem();
-        CustomRssView.addItemsToChannel(channel, item);
-        CustomRssView.publishRssChannel(channel);
-        return "home/home";
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/rss", method = RequestMethod.GET)
+    public ModelAndView getFeed(Model model)
+    {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("rssViewer");
+        mav.addObject("feedContent", feedService.listFeeds());
+        return mav;
     }
 }

@@ -7,11 +7,6 @@
     <title></title>
 </head>
 <body>
-<c:forEach items="${feed}" var="unit">
-  <div>
-    <h2>${unit.title}</h2>
-    <h2>${unit.link}</h2>
-  </div>
-</c:forEach>
+<%--<a href="http://127.0.0.1:8080<%=System.getProperty("user.dir")%>/rssfeed.rss">Rss</a>--%>
 </body>
 </html>

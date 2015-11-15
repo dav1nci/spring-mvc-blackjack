@@ -30,6 +30,7 @@ public class ForumEntity {
     @Column(name = "rating")
     private int rating;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OrderBy("date")
     @JoinTable(name = "forum_comments", joinColumns = { @JoinColumn(name = "forum_id") }, inverseJoinColumns = { @JoinColumn(name = "comment_id") })
     private Set<CommentEntity> comments = new HashSet<>();
 

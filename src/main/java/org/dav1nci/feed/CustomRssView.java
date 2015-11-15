@@ -16,9 +16,38 @@ import com.rometools.rome.feed.rss.Item;
 /**
  * Created by dav1nci on 14.11.15.
  */
-public class CustomRssView {
+public class CustomRssView extends AbstractRssFeedView
+{
+    @Override
+    protected List<Item> buildFeedItems(Map<String, Object> map, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+        @SuppressWarnings("unchecked")
+        List<FeedEntity> contentList = (List<FeedEntity>)map.get("feedContent");
+        List<Item> items = new ArrayList<>(contentList.size());
+        for (FeedEntity i : contentList)
+        {
+            Item item = new Item();
+            Content content = new Content();
 
-    static Channel createChannel()
+            content.setValue(i.getDescription());
+            item.setContent(content);
+            item.setTitle(i.getTitle());
+            item.setLink(i.getLink());
+            item.setPubDate(i.getDate());
+            items.add(item);
+        }
+        return items;
+    }
+
+    @Override
+    protected void buildFeedMetadata(Map<String, Object> model, Channel feed, HttpServletRequest request) {
+        feed.setTitle("Black Jack");
+        feed.setDescription("About well known game and about latest secrets and others in this game.");
+        feed.setLink("http://127.0.0.1:8080/");
+        super.buildFeedMetadata(model, feed, request);
+    }
+
+
+    /*static Channel createChannel()
     {
         Channel channel = new Channel();
         channel.setFeedType("rss_2.0");
@@ -49,7 +78,6 @@ public class CustomRssView {
     {
         try {
             File RSSDoc = new File("rssfeed.rss");
-            System.out.println(RSSDoc.getAbsolutePath());
             if (!RSSDoc.exists())
                 RSSDoc.createNewFile();
             WireFeedOutput wfo = new WireFeedOutput();
@@ -58,5 +86,5 @@ public class CustomRssView {
             System.out.println(e);
         }
         return true;
-    }
+    }*/
 }

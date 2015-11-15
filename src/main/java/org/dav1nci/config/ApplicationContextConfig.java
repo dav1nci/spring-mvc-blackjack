@@ -1,6 +1,8 @@
 package org.dav1nci.config;
 
 import org.dav1nci.dbservice.*;
+import org.dav1nci.feed.CustomRssView;
+import org.dav1nci.feed.FeedEntity;
 import org.dav1nci.forum.CommentEntity;
 import org.dav1nci.forum.ForumEntity;
 import org.hibernate.SessionFactory;
@@ -12,6 +14,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -41,7 +44,15 @@ public class ApplicationContextConfig
 
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 
-        sessionBuilder.addAnnotatedClasses(UserEntity.class, RulesEntity.class, FAQEntity.class, HomeEntity.class, ForumEntity.class, RoleEntity.class, CommentEntity.class);
+        sessionBuilder.addAnnotatedClasses(
+                UserEntity.class,
+                RulesEntity.class,
+                FAQEntity.class,
+                HomeEntity.class,
+                ForumEntity.class,
+                RoleEntity.class,
+                CommentEntity.class,
+                FeedEntity.class);
         sessionBuilder.addProperties(getHibernateProperties());
 
         return sessionBuilder.buildSessionFactory();
@@ -64,5 +75,16 @@ public class ApplicationContextConfig
         return transactionManager;
     }
 
+    @Bean
+    public BeanNameViewResolver getBeanNameViewResolver()
+    {
+        return new BeanNameViewResolver();
+    }
+
+    @Bean(name = "rssViewer")
+    public CustomRssView getCustomRssView()
+    {
+        return new CustomRssView();
+    }
 
 }
