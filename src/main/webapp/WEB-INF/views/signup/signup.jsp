@@ -8,6 +8,19 @@
   <style>
     <%@include file="../../../resources/css/bootstrap.min.css"%>
   </style>
+    <script>
+        function checkForm()
+        {
+            var password, confirmPassword, errorString;
+            password = document.getElementById("password");
+            confirmPassword = document.getElementById("confirmPassword");
+            if (password != confirmPassword)
+            {
+                errorString = "Password must be the same";
+                document.getElementById("confirmError").innerHTML = errorString;
+            }
+        }
+    </script>
   <title>Home</title>
 </head>
 <body>
@@ -18,7 +31,7 @@
   <div class="constructor">
     <div class="alert alert-success">
       <h2>Sign up</h2>
-      <form class="form-horizontal" action="/signup" method="post">
+      <form class="form-horizontal" action="/signup" onsubmit="return checkForm()" method="post">
         <div class="form-group">
           <label class="control-label col-xs-3">Name</label>
           <div class="col-xs-9">
@@ -40,17 +53,15 @@
         <div class="form-group">
           <label class="control-label col-xs-3">Password</label>
           <div class="col-xs-9">
-              <input type="password" class="form-control" name="password" placeholder="Enter your password">
+              <input type="password" id = "password" class="form-control" name="password" placeholder="Enter your password">
           </div>
         </div>
           <div class="form-group">
               <label class="control-label col-xs-3">Confirm password</label>
               <div class="col-xs-9">
+                  <p id="confirmError" class="control-label col-xs-3"></p>
                   <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm your password">
               </div>
-              <c:if test="${not empty error}">
-                <h3>Passwords must be the same</h3>
-              </c:if>
           </div>
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-9">

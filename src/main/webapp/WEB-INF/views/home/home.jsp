@@ -8,7 +8,11 @@
 <head>
     <style>
         <%@include file="../../../resources/css/bootstrap.min.css"%>
+
     </style>
+    <script type="text/javascript" src="../../../resources/js/jquery-2.1.4.js">
+        
+    </script>
     <title>Home</title>
 </head>
 <body>
@@ -17,16 +21,11 @@
 </div>
 <div class="container">
     <div class="constructor">
-        <%--<div class="jumbotron" style="margin-top: 20px;">
-            &lt;%&ndash;<sec:authorize access="!isAuthenticated()">
-                <p><a class="btn btn-lg btn-success" href="/signin" > Войти</a></p>
-            </sec:authorize>
-            <sec:authorize access="isAuthenticated()">
-                <p>Ваш логин: <sec:authentication property="principal.username" /></p>
-                <p><a class="btn btn-lg btn-danger" href="/signout" role="button">Выйти</a></p>
-
-            </sec:authorize>&ndash;%&gt;
-        </div>--%>
+        <div class="jumbotron" style="margin-top: 20px;">
+            <img src="../../../resources/images/1.jpg" alt="black jack" id="myimage" onclick="changeImage()" height="100px" width="100px">
+            <p id="demo">Hello World!</p>
+            <button type="button" onclick="document.getElementById('demo').innerHTML = 'Changed string'">Click me</button>
+        </div>
 
                 <c:forEach items="${content}" var="row">
                     <p>${row.content}</p>
