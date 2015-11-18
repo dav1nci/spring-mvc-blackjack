@@ -58,5 +58,4 @@ public class CommentEntity
     public void setDate(Date date) {
         this.date = date;
     }
-
 }

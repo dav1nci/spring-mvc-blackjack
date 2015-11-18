@@ -1,16 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dav1nci
-  Date: 27.10.15
-  Time: 19:05
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-  <style>
-    <%@include file="../../../resources/css/bootstrap.min.css"%>
-  </style>
+  <link href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />" rel="stylesheet">
   <title></title>
 </head>
 <body>

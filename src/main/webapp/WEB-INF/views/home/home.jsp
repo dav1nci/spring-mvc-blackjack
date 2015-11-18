@@ -6,12 +6,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <style>
-        <%@include file="../../../resources/css/bootstrap.min.css"%>
-
-    </style>
-    <script type="text/javascript" src="../../../resources/js/jquery-2.1.4.js">
-        
+    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+    <script src="<c:url value="/resources/js/jquery-2.1.4.js" />" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function()
+        {
+            $("button").click(function()
+            {
+                $.get("/ajaxdemo", function(data, status)
+                {
+                    alert("Data: " + data + "\nStatus: " + status);
+                })
+            })
+        })
+    /*$(document).ready(function(){
+        $("button").click(function(){
+            $("#test").hide();
+        });
+    });*/
     </script>
     <title>Home</title>
 </head>
@@ -22,9 +34,8 @@
 <div class="container">
     <div class="constructor">
         <div class="jumbotron" style="margin-top: 20px;">
-            <img src="../../../resources/images/1.jpg" alt="black jack" id="myimage" onclick="changeImage()" height="100px" width="100px">
-            <p id="demo">Hello World!</p>
-            <button type="button" onclick="document.getElementById('demo').innerHTML = 'Changed string'">Click me</button>
+            <button>AJAX DEMO</button>
+            <p id = "test">qq</p>
         </div>
 
                 <c:forEach items="${content}" var="row">

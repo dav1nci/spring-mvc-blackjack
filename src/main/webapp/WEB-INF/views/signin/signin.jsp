@@ -4,10 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-  <style>
-      <%@include file="../../../resources/css/bootstrap.min.css"%>
-      <%--<%@include file="../../../resources/css/mystyle.css"%>--%>
-  </style>
+    <link href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />" rel="stylesheet">
 
   <title>Home</title>
 </head>

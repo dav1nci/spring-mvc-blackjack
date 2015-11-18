@@ -1,10 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <style>
-        <%--<%@include file="../../../resources/css/bootstrap.min.css"%>--%>
-    </style>
+    <link href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />" rel="stylesheet">
 </head>
 <body>
 <div class="container">

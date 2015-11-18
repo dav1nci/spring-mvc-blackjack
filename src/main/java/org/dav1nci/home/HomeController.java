@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,5 +48,12 @@ public class HomeController
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/ajaxdemo", method = RequestMethod.GET)
+    public @ResponseBody String ajaxTest()
+    {
+        System.out.println("I'm in AJAX TEST CONTROLLER");
+        return "Hello WORLD!!! FROM SERVER!!!! WITH LOVE!!!";
     }
 }

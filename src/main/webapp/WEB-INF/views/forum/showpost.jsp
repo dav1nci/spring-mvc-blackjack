@@ -6,10 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <style>
-    <%@include file="../../../resources/css/bootstrap.min.css"%>
-    <%@include file="../../../resources/css/mystyle.css"%>
-  </style>
+    <link href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />" rel="stylesheet">
+    <link href="<c:url value="${pageContext.request.contextPath}/resources/css/mystyle.css" />" rel="stylesheet">
   <title>Home</title>
 </head>
 <body>

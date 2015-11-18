@@ -42,7 +42,6 @@ public class ForumService implements IForumService
     @Override
     @Transactional
     public void addComment(int id, CommentEntity comment) {
-        ForumEntity forumEntity = showPost(id);
-        forumEntity.getComments().add(comment);
+        iForumDAO.addComent(id, comment);
     }
 }

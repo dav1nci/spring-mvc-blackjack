@@ -5,9 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <html>
 <head>
-  <style>
-    <%@include file="../../../resources/css/bootstrap.min.css"%>
-  </style>
+    <link href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <script>
         function checkForm()
         {

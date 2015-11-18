@@ -3,6 +3,9 @@ package org.dav1nci.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
@@ -10,7 +13,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @Configuration
 @ComponentScan({"org.dav1nci"})
-public class WebMvcConfig {
+@EnableWebMvc
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
@@ -18,5 +22,10 @@ public class WebMvcConfig {
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 }
