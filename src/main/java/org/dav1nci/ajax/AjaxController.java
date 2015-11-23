@@ -19,32 +19,13 @@ import java.util.List;
 @RestController
 public class AjaxController
 {
-
     @Autowired
     private ForumService forumService;
 
-    @RequestMapping(value = "/ajax")
-    public ResponseEntity<String> getResponce(@RequestBody String username)
+    @RequestMapping(value = "/show")
+    public ResponseEntity<String> getResponce()
     {
         Gson gson = new Gson();
-        System.out.println(username);
-        /*UserEntity userEntity = findByName(username);
-        System.out.println(gson.toJson(userEntity));*/
         return new ResponseEntity<String>(gson.toJson(forumService.listPost()), HttpStatus.OK);
-    }
-
-    private UserEntity findByName(String username)
-    {
-        UserEntity userEntity = new UserEntity();
-        RoleEntity roleEntity = new RoleEntity();
-        roleEntity.setId(1);
-        roleEntity.setRole("USER");
-        userEntity.setId(1);
-        userEntity.setRole(roleEntity);
-        userEntity.setEmail("dimsaqqweqwe");
-        userEntity.setName("DIMAS");
-        userEntity.setPassword("qweasdzxc234");
-        userEntity.setSurname("Stolpakov");
-        return userEntity;
     }
 }

@@ -63,4 +63,10 @@ public class ForumController
         forumService.addComment(id, comment);
         return "redirect:/forum/{id}";
     }
+
+    @RequestMapping(value = "/forum-ajax")
+    public String forumAjax()
+    {
+        return "ajax/forumajax";
+    }
 }

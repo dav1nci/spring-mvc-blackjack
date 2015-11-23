@@ -18,12 +18,7 @@
                     alert("Data: " + data + "\nStatus: " + status);
                 })
             })
-        })
-    /*$(document).ready(function(){
-        $("button").click(function(){
-            $("#test").hide();
         });
-    });*/
     </script>
     <title>Home</title>
 </head>

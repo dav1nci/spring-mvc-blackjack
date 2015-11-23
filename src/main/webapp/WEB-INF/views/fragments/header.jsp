@@ -4,6 +4,8 @@
 <html>
 <head>
     <link href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />" rel="stylesheet">
+    <script src="<c:url value="/resources/js/bootstrap.min.js" />" type="text/javascript"></script>
+    <script src="<c:url value="/resources/js/jquery-2.1.4.js" />" type="text/javascript"></script>
 </head>
 <body>
 <div class="container">
@@ -16,12 +18,17 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="navbar-brand" href="/">Home</a></li>
-                        <li><a class="navbar-brand" href="/rules">Rules</a></li>
-                        <li><a class="navbar-brand" href="/rss">Feeds</a></li>
-                        <li><a class="navbar-brand" href="/forum">Forums</a></li>
-                        <li><a class="navbar-brand" href="/faq">FAQ</a></li>
-                        <li><a class="navbar-brand" href="/ajaxjsp">Ajax</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/rules">Rules</a></li>
+                        <li><a href="/rss">Feeds</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forum<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/forum">Default</a></li>
+                                <li><a href="/forum-ajax">With AJAX</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/faq">FAQ</a></li>
                     </ul>
                     <div class="pull-right">
                         <%--<a href="/logout"/>">Logout</a>--%>
