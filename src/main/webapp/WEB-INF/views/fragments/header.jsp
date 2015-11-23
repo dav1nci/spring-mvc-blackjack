@@ -21,6 +21,7 @@
                         <li><a class="navbar-brand" href="/rss">Feeds</a></li>
                         <li><a class="navbar-brand" href="/forum">Forums</a></li>
                         <li><a class="navbar-brand" href="/faq">FAQ</a></li>
+                        <li><a class="navbar-brand" href="/ajaxjsp">Ajax</a></li>
                     </ul>
                     <div class="pull-right">
                         <%--<a href="/logout"/>">Logout</a>--%>
