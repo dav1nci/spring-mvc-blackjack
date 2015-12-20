@@ -1,4 +1,6 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.daointerface;
+
+import org.dav1nci.dbservice.HomeEntity;
 
 import java.util.List;
 

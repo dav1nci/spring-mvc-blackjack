@@ -1,5 +1,7 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.daoimplementation;
 
+import org.dav1nci.dbservice.HomeEntity;
+import org.dav1nci.dbservice.daointerface.IHomeDAO;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

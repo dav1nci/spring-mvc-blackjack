@@ -22,11 +22,14 @@
                 <th>Rating</th>
             </tr>
             </thead>
-            <tbody id="table-body"></tbody>
+            <tbody id="table-body"></tbody>     <%--для будущег отображения постов форума--%>
         </table>
     </div>
     <div class="col-md-4 center-block">
         <button type="button" id="showContent" class="btn btn-primary btn-lg center-block">GET FORUM CONTENT WITH AJAX</button>
+    </div>
+    <div id="feedback">
+
     </div>
 </div>
 

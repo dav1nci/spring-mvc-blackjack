@@ -2,3 +2,11 @@
 {
     border-bottom: 1px solid dimgrey;
 }
+
+.bottom-bar
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+}

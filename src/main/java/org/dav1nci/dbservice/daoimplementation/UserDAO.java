@@ -1,13 +1,12 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.daoimplementation;
 
+import org.dav1nci.dbservice.UserEntity;
+import org.dav1nci.dbservice.daointerface.IUserDAO;
 import org.hibernate.SessionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -1,4 +1,6 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.srviceinterface;
+
+import org.dav1nci.dbservice.UserEntity;
 
 import java.util.List;
 

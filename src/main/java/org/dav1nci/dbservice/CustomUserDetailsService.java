@@ -2,6 +2,7 @@ package org.dav1nci.dbservice;
 
 import java.util.*;
 
+import org.dav1nci.dbservice.daoimplementation.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

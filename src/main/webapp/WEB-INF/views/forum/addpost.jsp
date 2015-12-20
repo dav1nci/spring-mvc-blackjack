@@ -10,6 +10,7 @@
 <html>
 <head>
   <link href="<c:url value="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />" rel="stylesheet">
+  <script src="<c:url value="/resources/js/jquery-2.1.4.js" />" type="text/javascript"></script>
     <title></title>
 </head>
 <body>

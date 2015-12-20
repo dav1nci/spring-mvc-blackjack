@@ -1,5 +1,7 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.serviceimplementation;
 
+import org.dav1nci.dbservice.daointerface.IForumDAO;
+import org.dav1nci.dbservice.srviceinterface.IForumService;
 import org.dav1nci.forum.CommentEntity;
 import org.dav1nci.forum.ForumEntity;
 import org.springframework.beans.factory.annotation.Autowired;

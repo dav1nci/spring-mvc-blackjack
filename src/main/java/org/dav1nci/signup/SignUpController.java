@@ -2,7 +2,7 @@ package org.dav1nci.signup;
 
 import org.dav1nci.dbservice.RoleEntity;
 import org.dav1nci.dbservice.UserEntity;
-import org.dav1nci.dbservice.UserService;
+import org.dav1nci.dbservice.serviceimplementation.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by dav1nci on 27.10.15.

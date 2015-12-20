@@ -1,5 +1,6 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.daoimplementation;
 
+import org.dav1nci.dbservice.daointerface.IForumDAO;
 import org.dav1nci.forum.CommentEntity;
 import org.dav1nci.forum.ForumEntity;
 import org.hibernate.SessionFactory;

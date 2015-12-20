@@ -1,5 +1,7 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.serviceimplementation;
 
+import org.dav1nci.dbservice.daointerface.IFeedDAO;
+import org.dav1nci.dbservice.srviceinterface.IFeedService;
 import org.dav1nci.feed.FeedEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;

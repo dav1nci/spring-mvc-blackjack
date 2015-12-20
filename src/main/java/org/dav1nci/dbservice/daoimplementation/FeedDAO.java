@@ -1,5 +1,6 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.daoimplementation;
 
+import org.dav1nci.dbservice.daointerface.IFeedDAO;
 import org.dav1nci.feed.FeedEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

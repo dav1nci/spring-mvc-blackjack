@@ -1,15 +1,14 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.serviceimplementation;
 
+import org.dav1nci.dbservice.FAQEntity;
+import org.dav1nci.dbservice.daointerface.IFAQDAO;
+import org.dav1nci.dbservice.srviceinterface.IFAQService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Inject;
 import java.util.List;
 
 /**

@@ -28,6 +28,7 @@
                                 <li><a href="/forum-ajax">With AJAX</a></li>
                             </ul>
                         </li>
+                        <li><a href="/game">GAME</a></li>
                         <li><a href="/faq">FAQ</a></li>
                     </ul>
                     <div class="pull-right">

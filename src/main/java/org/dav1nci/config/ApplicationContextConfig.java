@@ -5,6 +5,7 @@ import org.dav1nci.feed.CustomRssView;
 import org.dav1nci.feed.FeedEntity;
 import org.dav1nci.forum.CommentEntity;
 import org.dav1nci.forum.ForumEntity;
+import org.dav1nci.playgame.CardEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -52,7 +53,8 @@ public class ApplicationContextConfig
                 ForumEntity.class,
                 RoleEntity.class,
                 CommentEntity.class,
-                FeedEntity.class);
+                FeedEntity.class,
+                CardEntity.class);
         sessionBuilder.addProperties(getHibernateProperties());
 
         return sessionBuilder.buildSessionFactory();

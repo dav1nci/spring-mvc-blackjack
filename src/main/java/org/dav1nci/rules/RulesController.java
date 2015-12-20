@@ -1,6 +1,6 @@
 package org.dav1nci.rules;
 
-import org.dav1nci.dbservice.HomeService;
+import org.dav1nci.dbservice.serviceimplementation.HomeService;
 import org.dav1nci.dbservice.RulesEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

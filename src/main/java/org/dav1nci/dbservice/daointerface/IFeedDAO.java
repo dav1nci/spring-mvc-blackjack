@@ -1,13 +1,14 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.daointerface;
 
 import org.dav1nci.feed.FeedEntity;
+import org.dav1nci.forum.ForumEntity;
 
 import java.util.List;
 
 /**
- * Created by dav1nci on 15.11.15.
+ * Created by dav1nci on 14.11.15.
  */
-public interface IFeedService
+public interface IFeedDAO
 {
     List<FeedEntity> listFeeds();
     void addFeed(FeedEntity forumEntity);

@@ -1,9 +1,11 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.serviceimplementation;
 
+import org.dav1nci.dbservice.UserEntity;
+import org.dav1nci.dbservice.daointerface.IUserDAO;
+import org.dav1nci.dbservice.srviceinterface.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

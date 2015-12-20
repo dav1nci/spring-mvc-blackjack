@@ -1,5 +1,8 @@
-package org.dav1nci.dbservice;
+package org.dav1nci.dbservice.serviceimplementation;
 
+import org.dav1nci.dbservice.HomeEntity;
+import org.dav1nci.dbservice.daointerface.IHomeDAO;
+import org.dav1nci.dbservice.srviceinterface.IHomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

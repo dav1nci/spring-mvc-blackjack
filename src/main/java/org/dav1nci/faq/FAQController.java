@@ -1,20 +1,13 @@
 package org.dav1nci.faq;
 
 import org.dav1nci.dbservice.FAQEntity;
-import org.dav1nci.dbservice.FAQService;
+import org.dav1nci.dbservice.serviceimplementation.FAQService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-
-import javax.inject.Inject;
-import java.util.List;
 
 /**
  * Created by dav1nci on 31.10.15.

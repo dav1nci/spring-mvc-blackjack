@@ -1,6 +1,6 @@
 package org.dav1nci.forum;
 
-import org.dav1nci.dbservice.ForumService;
+import org.dav1nci.dbservice.serviceimplementation.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
