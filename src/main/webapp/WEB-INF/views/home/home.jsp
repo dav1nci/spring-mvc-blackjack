@@ -9,7 +9,7 @@
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <script src="<c:url value="/resources/js/jquery-2.1.4.js" />" type="text/javascript"></script>
     <script type="text/javascript">
-    $(document).ready(function()
+        $(document).ready(function()
         {
             $("button").click(function()
             {
@@ -33,9 +33,9 @@
             <p id = "test">qq</p>
         </div>
 
-                <c:forEach items="${content}" var="row">
-                    <p>${row.content}</p>
-                </c:forEach>
+        <c:forEach items="${content}" var="row">
+            <p>${row.content}</p>
+        </c:forEach>
 
     </div>
 </div>

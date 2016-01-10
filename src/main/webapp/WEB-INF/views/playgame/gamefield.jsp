@@ -17,33 +17,39 @@
             <div class="col-md-4">
                 <img src="../../../resources/images/cards/deck.jpg">
                 <div class="row" style="margin-top: 30px">
-                    <a id="hit" class="btn btn-success" style="margin-left: 90px; padding: 10px 30px 10px 30px" href="+">Hit</a>
-                    <a id="stand" class="btn btn-success" style="margin-left: 20px; padding: 10px 30px 10px 30px" href="+">Stand</a>
+                    <a id="hit" class="btn btn-success" style="margin-left: 90px; padding: 10px 30px 10px 30px">Hit</a>
+                    <a id="stand" class="btn btn-success" style="margin-left: 20px; padding: 10px 30px 10px 30px" >Stand</a>
                 </div>
 
             </div>
             <div class="col-md-8">
                 <div class="row" style="margin-top: 50px">
                     <div class="col-md-1">
+                        <p>score</p><br>
                         <p id="scoreDealer"></p>
                     </div>
                     <div class="col-md-4">
-                        <p>cards</p>
+                        <p>cards</p><br>
+                        <p id="cardsDealer"></p>
                     </div>
                     <div class="col-md-7">
-                        <p>other cards</p>
+                        <p>other cards</p><br>
+                        <p id="otherCardsDealer"></p>
                     </div>
                 </div>
                 <a id="start" class="btn btn-danger" style="margin-top: 200px">Start Game</a>
                 <div class="row" style="margin-top: 120px">
                     <div class="col-md-1">
-                        <p id="scorePlayer">score</p>
+                        <p>score</p><br>
+                        <p id="scorePlayer"></p>
                     </div>
                     <div class="col-md-4">
-                        <p>cards</p>
+                        <p>cards</p><br>
+                        <p id="cardsPlayer"></p>
                     </div>
                     <div class="col-md-7">
-                        <p>other cards</p>
+                        <p>other cards</p><br>
+                        <p id="otherCardsPlayer"></p>
                     </div>
                 </div>
             </div>
@@ -68,7 +74,7 @@
             });
             $("#hit").click(function()
             {
-
+                hit();
             });
             $("#stand").click(function()
             {
@@ -76,8 +82,19 @@
             });
         });
 
+        function resetFields()
+        {
+            $("#cardsDealer").text("");
+            $("#scoreDealer").text("");
+            $("#cardsPlayer").text("");
+            $("#scorePlayer").text("");
+            $("#otherCardsPlayer").text("");
+            $("#otherCardsDealer").text("");
+        }
+
         function startGame()
         {
+            resetFields();
             $.ajax({
                 type : "POST",
                 contentType : "application/json",
@@ -89,7 +106,7 @@
                     setStartHand(data)
                 },
                 error : function(e) {
-                    display(e);
+                    alert(e);
                 },
                 done : function(e) {
                     /*enableSearchButton(true);*/
@@ -97,38 +114,54 @@
             })
         }
 
-        function setStartHand(data)
+        function hit()
         {
-            $(data).each(function()
-            {
-                $("#scoreDealer").text(this.lear);
+            var request = {};
+            var cardsPlayer = $("#cardsPlayer").text();
+            request["scorePlayer"] = $("#scorePlayer").text();
+            if (cardsPlayer.indexOf("A") != -1)
+                request["isAce"] = 1;
+            else
+                request["isAce"] = 0;
 
-            });
-        }
-
-        function searchViaAjax() {
-
-            var search = {};
-            search["someData"] = "Some Data";
 
             $.ajax({
                 type : "POST",
                 contentType : "application/json",
-                url : "/show",
-                data : JSON.stringify(search),
+                url : "/hit",
+                data : JSON.stringify(request),
                 dataType : 'json',
                 timeout : 100000,
                 success : function(data) {
-                    display(data);
+                    alert(JSON.stringify(data, null, 4));
+                    afterHit(data);
                 },
                 error : function(e) {
-                    display(e);
+                    alert("Error in hit");
                 },
                 done : function(e) {
+                    alert("Done in hit");
                     /*enableSearchButton(true);*/
                 }
             });
+        }
 
+        function afterHit(data)
+        {
+            $("#otherCardsPlayer").append(data.cards[0].value + " " + data.cards[0].lear + "\n");
+            $("#scorePlayer").text(data.scorePlayer);
+            if (data.win == -1)
+                alert("You Loose");
+        }
+
+        function setStartHand(data)
+        {
+            $("#cardsDealer").text(data.cards[0].value + " " + data.cards[0].lear + "\n" + data.cards[1].value + " " + data.cards[1].lear);
+            $("#scoreDealer").text(data.scoreDealer);
+            $("#cardsPlayer").text(data.cards[2].value + " " + data.cards[2].lear + "\n" + data.cards[3].value + " " + data.cards[3].lear);
+            $("#scorePlayer").text(data.scorePlayer);
+            if (data.win == 1)
+                alert("You WIN!!!!!");
         }
 
         function hideButton() {

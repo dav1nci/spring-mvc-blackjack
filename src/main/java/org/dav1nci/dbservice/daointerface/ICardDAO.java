@@ -10,7 +10,7 @@ import java.util.List;
 public interface ICardDAO
 {
     List<CardEntity> listCards();
-    void updateCards(List<CardEntity> cards);
+    void updateCards(CardEntity ... cards);
     void resetDeck();
     CardEntity getCard();
 }

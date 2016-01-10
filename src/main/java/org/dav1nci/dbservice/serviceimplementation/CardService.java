@@ -31,7 +31,7 @@ public class CardService implements ICardService
     @Transactional
     @Override
     public void updateCards(List<CardEntity> cards) {
-        cardDAO.updateCards(cards);
+        /*cardDAO.updateCards(cards);*/
     }
 
     @Transactional

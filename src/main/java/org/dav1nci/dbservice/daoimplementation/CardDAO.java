@@ -27,7 +27,7 @@ public class CardDAO implements ICardDAO
     }
 
     @Override
-    public void updateCards(List<CardEntity> cards)
+    public void updateCards(CardEntity ... cards)
     {
         for (CardEntity i : cards)
             sessionFactory.getCurrentSession().update(i);
@@ -52,8 +52,14 @@ public class CardDAO implements ICardDAO
             for (CardEntity card : deck)
             {
                 if (card.getId() == card_id)
+                {
+                    card.setInDeck(0);
+                    updateCards(card);
                     return card;
+                }
             }
         }
     }
+
+
 }
