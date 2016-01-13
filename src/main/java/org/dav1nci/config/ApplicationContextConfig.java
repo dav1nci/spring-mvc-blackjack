@@ -1,5 +1,6 @@
 package org.dav1nci.config;
 
+import org.apache.commons.dbcp.BasicDataSource;
 import org.dav1nci.dbservice.*;
 import org.dav1nci.feed.CustomRssView;
 import org.dav1nci.feed.FeedEntity;
@@ -18,6 +19,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 
 import javax.sql.DataSource;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 /**
@@ -37,6 +40,23 @@ public class ApplicationContextConfig
         dataSource.setPassword("4321");
 
         return dataSource;
+    }
+
+
+    @Bean
+    public BasicDataSource dataSource() throws URISyntaxException {
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(dbUrl);
+        basicDataSource.setUsername(username);
+        basicDataSource.setPassword(password);
+
+        return basicDataSource;
     }
 
     @Autowired
