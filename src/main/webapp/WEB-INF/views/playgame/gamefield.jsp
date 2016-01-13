@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <img src="../../../resources/images/cards/deck.jpg">
+                <img src="../../../resources/images/deck.jpg">
                 <div class="row" style="margin-top: 30px">
                     <a id="hit" class="btn btn-success" style="margin-left: 90px; padding: 10px 30px 10px 30px">Hit</a>
                     <a id="stand" class="btn btn-success" style="margin-left: 20px; padding: 10px 30px 10px 30px" >Stand</a>
@@ -57,7 +57,7 @@
     </div>
 
 
-<div class="bottom-bar">
+<%--<div class="bottom-bar">
     <div class="bottombar-inner">
         <div class="container">
             <ul class="nav">
@@ -65,12 +65,13 @@
             </ul>
         </div>
     </div>
-</div>
+</div>--%>
     <script type="text/javascript">
         $(document).ready(function() {
             $("#start").click(function()
             {
                 startGame();
+                hideButton();
             });
             $("#hit").click(function()
             {
@@ -78,7 +79,7 @@
             });
             $("#stand").click(function()
             {
-
+                stand();
             });
         });
 
@@ -133,7 +134,7 @@
                 dataType : 'json',
                 timeout : 100000,
                 success : function(data) {
-                    alert(JSON.stringify(data, null, 4));
+                    /*alert(JSON.stringify(data, null, 4));*/
                     afterHit(data);
                 },
                 error : function(e) {
@@ -156,7 +157,7 @@
 
         function setStartHand(data)
         {
-            $("#cardsDealer").text(data.cards[0].value + " " + data.cards[0].lear + "\n" + data.cards[1].value + " " + data.cards[1].lear);
+            $("#cardsDealer").text(data.cards[0].value + " " + data.cards[0].lear + "\n" /*+ data.cards[1].value + " " + data.cards[1].lear*/);
             $("#scoreDealer").text(data.scoreDealer);
             $("#cardsPlayer").text(data.cards[2].value + " " + data.cards[2].lear + "\n" + data.cards[3].value + " " + data.cards[3].lear);
             $("#scorePlayer").text(data.scorePlayer);
@@ -164,9 +165,56 @@
                 alert("You WIN!!!!!");
         }
 
-        function hideButton() {
-            $("#showContent").hide();
+        function stand()
+        {
+            var request = {};
+            var cardsDealer = $("#cardsDealer").text();
+            request["scoreDealer"] = $("#scoreDealer").text();
+            if (cardsDealer.indexOf("A") != -1)
+                request["isAce"] = 1;
+            else
+                request["isAce"] = 0;
+            $.ajax({
+                type : "POST",
+                contentType : "application/json",
+                url : "/stand",
+                data : JSON.stringify(request),
+                dataType : 'json',
+                timeout : 100000,
+                success : function(data) {
+                    /*alert(JSON.stringify(data, null, 4));*/
+                    afterStand(data);
+                },
+                error : function(e) {
+                    alert(e);
+                },
+                done : function(e) {
+                    alert("Done in stand");
+                    /*enableSearchButton(true);*/
+                }
+            });
         }
+
+        function afterStand(data) {
+            $("#scoreDealer").text(data.scoreDealer);
+            $(data.cards).each(function () {
+                $("#otherCardsDealer").append(this.value + " " + this.lear + " ");
+            });
+            if (($("#scoreDealer").text() > $("#scorePlayer").text()) && ($("#scoreDealer").text() <= 21))
+                alert("Dealer WIN!!");
+            else
+                alert("Player WIN!!");
+        }
+
+        function hideButton() {
+            $("#scoreDealer").hide();
+        }
+
+        function showButton()
+        {
+            $("#scoreDealer").show();
+        }
+
 
         function display(data) {
             var json = "<h4>Ajax Response</h4><pre>"

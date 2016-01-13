@@ -6,6 +6,7 @@ package org.dav1nci.playgame;
 public class ServerRequest
 {
     private int scorePlayer;
+    private int scoreDealer;
     private int isAce;
 
     public int getScorePlayer() {
@@ -14,6 +15,14 @@ public class ServerRequest
 
     public void setScorePlayer(int scorePlayer) {
         this.scorePlayer = scorePlayer;
+    }
+
+    public int getScoreDealer() {
+        return scoreDealer;
+    }
+
+    public void setScoreDealer(int scoreDealer) {
+        this.scoreDealer = scoreDealer;
     }
 
     public int getIsAce() {

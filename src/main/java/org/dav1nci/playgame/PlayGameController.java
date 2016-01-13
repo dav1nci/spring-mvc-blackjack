@@ -77,4 +77,25 @@ public class PlayGameController
         }
         return new ResponseEntity<String>(new Gson().toJson(responce), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/stand")
+    public ResponseEntity<String> stand(@RequestBody ServerRequest request)
+    {
+        System.out.println("SCORE PLAYER" + request.getScoreDealer());
+        ServerResponce responce = new ServerResponce();
+        if (request.getScoreDealer() < 17)
+        {
+            List<CardEntity> cards = new ArrayList<>();
+            responce.setScoreDealer(request.getScoreDealer());
+            do {
+                CardEntity card = cardService.getCard();
+                cards.add(card);
+                responce.setScoreDealer(responce.getScoreDealer() + card.getCost());
+            } while (responce.getScoreDealer() < 17);
+            responce.setCards(cards);
+            return new ResponseEntity<String>(new Gson().toJson(responce), HttpStatus.OK);
+        }
+        responce.setScoreDealer(request.getScoreDealer());
+        return new ResponseEntity<String>(new Gson().toJson(responce), HttpStatus.OK);
+    }
 }

@@ -3,12 +3,6 @@
     border-bottom: 1px solid dimgrey;
 }
 
-body
-{
-    background: url("../images/table.jpg");
-    color: white;
-}
-
 .bottom-bar
 {
     position: fixed;
