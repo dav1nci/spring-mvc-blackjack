@@ -21,9 +21,6 @@
                 }
                 else
                 {
-                    event.preventDefault();
-                    var data = {};
-                    data["query"] = $
                 }
             });
         });
