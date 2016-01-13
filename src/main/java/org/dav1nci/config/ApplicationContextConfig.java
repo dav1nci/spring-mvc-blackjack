@@ -31,7 +31,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class ApplicationContextConfig
 {
-    @Bean(name = "dataSource")
+    /*@Bean(name = "dataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
@@ -40,7 +40,7 @@ public class ApplicationContextConfig
         dataSource.setPassword("4321");
 
         return dataSource;
-    }
+    }*/
 
 
     @Bean
